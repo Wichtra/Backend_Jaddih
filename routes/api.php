@@ -30,6 +30,7 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('place')->group(function () {
     Route::get('/', [PlaceController::class, 'index']);
+    Route::post('/', [PlaceController::class, 'store']);
     Route::get('/{id}', [PlaceController::class, 'show']);
 });
 
