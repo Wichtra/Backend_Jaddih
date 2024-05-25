@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class TicketSeeder extends Seeder
+class StatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +14,8 @@ class TicketSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tikets')->insert([
-            ['ticName' => 'Tiket masuk', 'ticPrice' => '100000'],
+        DB::table('status')->insert([
+            ['statusName' => 'Pending']
         ]);
     }
 }

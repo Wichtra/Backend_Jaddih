@@ -17,17 +17,72 @@ class TransactionSeeder extends Seeder
     {
         $user = User::all();
         DB::table('transactions')->insert([
-            ['userId' => $user[0]->id, 'ticId' => '1', 'transQty' => '2', 'transStatus' => 'Pending'],
-            ['userId' => $user[1]->id, 'ticId' => '2', 'transQty' => '1', 'transStatus' => 'Pending'],
-            ['userId' => $user[2]->id, 'ticId' => '3', 'transQty' => '3', 'transStatus' => 'Pending'],
-            ['userId' => $user[3]->id, 'ticId' => '4', 'transQty' => '4', 'transStatus' => 'Pending'],
-            ['userId' => $user[4]->id, 'ticId' => '5', 'transQty' => '5', 'transStatus' => 'Pending'],
-            ['userId' => $user[5]->id, 'ticId' => '6', 'transQty' => '2', 'transStatus' => 'Pending'],
-            ['userId' => $user[6]->id, 'ticId' => '7', 'transQty' => '3', 'transStatus' => 'Pending'],
-            ['userId' => $user[7]->id, 'ticId' => '8', 'transQty' => '2', 'transStatus' => 'Pending'],
-            ['userId' => $user[8]->id, 'ticId' => '9', 'transQty' => '4', 'transStatus' => 'Pending'],
-            ['userId' => $user[9]->id, 'ticId' => '10', 'transQty' => '1', 'transStatus' => 'Pending'],
-            ['userId' => $user[10]->id, 'ticId' => '11', 'transQty' => '3', 'transStatus' => 'Pending'],
+            [
+                'userId' => $user[0]->id,
+                'transQty' => '2',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
+            [
+                'userId' => $user[1]->id,
+                'transQty' => '1',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
+            [
+                'userId' => $user[2]->id,
+                'transQty' => '3',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
+            [
+                'userId' => $user[3]->id,
+                'transQty' => '4',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
+            [
+                'userId' => $user[4]->id,
+                'transQty' => '5',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
+            [
+                'userId' => $user[5]->id,
+                'transQty' => '2',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
+            [
+                'userId' => $user[6]->id,
+                'transQty' => '3',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
+            [
+                'userId' => $user[7]->id,
+                'transQty' => '2',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
+            [
+                'userId' => $user[8]->id,
+                'transQty' => '4',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
+            [
+                'userId' => $user[9]->id,
+                'transQty' => '1',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
+            [
+                'userId' => $user[10]->id,
+                'transQty' => '3',
+                'transStatus' => 1,
+                'transExpired' => '2024-05-24 20:28:53'
+            ],
         ]);
     }
 }

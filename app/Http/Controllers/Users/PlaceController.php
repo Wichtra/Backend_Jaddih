@@ -15,4 +15,13 @@ class PlaceController extends Controller
             'data' => $places,
         ]);
     }
+
+    public function show($category)
+    {
+        $places = Place::where('categorieId', $category)->get();
+        return response()->json([
+            'message' => 'Data tempat wisata berdasarkan kategori',
+            'data' => $places,
+        ]);
+    }
 }

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Database\Seeders\TicketSeeder;
-use Illuminate\Support\Facades\DB;
+use Database\Seeders\TiransactionDetailSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,9 +26,10 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             PlaceSeeder::class,
             ReviewSeeder::class,
+            StatusSeeder::class,
             TicketSeeder::class,
-            TicketDetailSeeder::class,
             TransactionSeeder::class,
+            TransactionDetailSeeder::class
         ]);
     }
 }

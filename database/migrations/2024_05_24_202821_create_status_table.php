@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTicketDetailsTable extends Migration
+class CreateStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateTicketDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tiket_details', function (Blueprint $table) {
+        Schema::create('status', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ticId');
-            $table->foreign('ticId')->references('id')->on('tikets')->onDelete('restrict')->onUpdate('cascade');
+            $table->string('statusName');
         });
     }
 
@@ -27,6 +26,6 @@ class CreateTicketDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tiket_details');
+        Schema::dropIfExists('status');
     }
 }

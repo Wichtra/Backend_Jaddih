@@ -15,7 +15,7 @@ class CreateTicketsTable extends Migration
     {
         Schema::create('tikets', function (Blueprint $table) {
             $table->id();
-            $table->string('ticExpDate');
+            $table->string('ticName');
             $table->integer('ticPrice');
         });
     }
