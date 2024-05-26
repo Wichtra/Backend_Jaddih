@@ -17,28 +17,7 @@ class userController extends Controller
      */
     public function index(Request $request)
     {
-        // Validasi input
-        $credential = Validator::make($request->all(), [
-            'email' => 'required',
-            'password' => 'required',
-        ]);
-
-        if ($credential->fails()) {
-            return response()->json([
-                'message' => 'Gagal login',
-                'errors' => $credential->errors()
-            ], 422);
-        }
-
-        if (Auth::attempt($request->only('email', 'password'))) {
-            $user = Auth::user();
-            $token = $user->createToken('authToken')->plainTextToken;
-            return response()->json([
-                'message' => 'Login berhasil',
-                'token' => $token,
-                'data' => Auth::user()
-            ]);
-        }
+        
     }
 
     /**

@@ -26,8 +26,10 @@ use App\Http\Controllers\Admin\TransactionManagementController;
 |
 */
 
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware(['auth:sanctum']);
+
 Route::prefix('user')->group(function () {
-    Route::post('/login', [UserController::class, 'index']);
     Route::post('/register', [UserController::class, 'store']);
     Route::get('/show', [UserController::class, 'showAll']);
 });
@@ -47,9 +49,9 @@ Route::prefix('tiket')->group(function () {
 });
 
 Route::prefix('transaction')->group(function () {
-    Route::middleware('auth:api')->get('/', [TransactionController::class, 'index']);
-    Route::get('/{id}', [TransactionController::class, 'show']);
-    Route::post('/', [TransactionController::class, 'store']);
+    Route::get('/', [TransactionController::class, 'index'])->middleware(['auth:sanctum']);
+    Route::get('/{id}', [TransactionController::class, 'show'])->middleware(['auth:sanctum']);
+    Route::post('/', [TransactionController::class, 'store'])->middleware(['auth:sanctum']);
 });
 
 
