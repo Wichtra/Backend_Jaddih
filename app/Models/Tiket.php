@@ -10,6 +10,11 @@ class Tiket extends Model
     use HasFactory;
     public $timestamps = false;
 
+    protected $fillable = [
+        'ticName',
+        'ticPrice'
+    ];
+
     public function transaction()
     {
         return $this->belongsTo(Transaction::class, 'ticId', 'id');

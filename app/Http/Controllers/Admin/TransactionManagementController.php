@@ -2,84 +2,55 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TransactionManagementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $transaction = Transaction::all();
+        return response()->json([
+            'status' => 'success',
+            'data' => $transaction
+        ], 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $transaction = Transaction::findOrFail($id);
+        return response()->json([
+            'status' => 'success',
+            'data' => $transaction
+        ], 200);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    // public function update(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'userId' => 'required|integer',
+    //         'transStatus' => 'required|integer',
+    //         'transqty' => 'required|integer',
+    //         'transBooking' => 'required|string',
+    //         'transExpired' => 'required|string',
+    //     ]);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    //     $transaction = Transaction::findOrFail($id);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //     $transaction->update($request->all());
+
+    //     return response()->json([
+    //         'message' => 'transaction updated successfully',
+    //         'transaction' => $transaction
+    //     ], 200);
+    // }
+
     public function destroy($id)
     {
-        //
+        Transaction::destroy($id);
+        return response()->json([
+            'message' => 'transaction deleted successfully'
+        ], 200);
     }
 }

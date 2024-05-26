@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Users\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Users\PlaceController;
@@ -10,6 +11,9 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Users\TransactionController;
 use App\Http\Controllers\Admin\CategoryManagementController;
 use App\Http\Controllers\Admin\PlaceRecommendationController;
+use App\Http\Controllers\Admin\ReviewManagementController;
+use App\Http\Controllers\Admin\TiketManagementController;
+use App\Http\Controllers\Admin\TransactionManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +34,7 @@ Route::prefix('user')->group(function () {
 
 Route::prefix('place')->group(function () {
     Route::get('/', [PlaceController::class, 'index']);
+    Route::post('/', [PlaceController::class, 'store']);
     Route::get('/{id}', [PlaceController::class, 'show']);
 });
 
@@ -42,23 +47,36 @@ Route::prefix('tiket')->group(function () {
 });
 
 Route::prefix('transaction')->group(function () {
-    Route::get('/', [TransactionController::class, 'index']);
+    Route::middleware('auth:api')->get('/', [TransactionController::class, 'index']);
     Route::get('/{id}', [TransactionController::class, 'show']);
     Route::post('/', [TransactionController::class, 'store']);
 });
 
-// ============================================================
-// Route::prefix('admin')->group(function () {
-//     Route::get('/{id}', [AdminController::class, 'show']);
-// });
 
 
+// ===============================Admin===============================
+Route::prefix('admin')->group(function () {
+    Route::get('/category', [CategoryManagementController::class, 'index']);
+    Route::post('/category', [CategoryManagementController::class, 'store']);
+    Route::put('/category/{id}', [CategoryManagementController::class, 'update']);
+    Route::delete('/category/{id}', [CategoryManagementController::class, 'destroy']);
 
-Route::resource('category', CategoryManagementController::class);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 
-// ============================Admin===========================
-Route::get('/places', [PlaceRecommendationController::class, 'index']);
-Route::post('/places', [PlaceRecommendationController::class, 'store']);
-Route::get('/places/{id}', [PlaceRecommendationController::class, 'show']);
-Route::put('/places/{id}', [PlaceRecommendationController::class, 'update']);
-Route::delete('/places/{id}', [PlaceRecommendationController::class, 'destroy']);
+    Route::get('/place', [PlaceRecommendationController::class, 'index']);
+    Route::post('/place', [PlaceRecommendationController::class, 'store']);
+    Route::get('/place/{id}', [PlaceRecommendationController::class, 'show']);
+    Route::put('/place/{id}', [PlaceRecommendationController::class, 'update']);
+    Route::delete('/place/{id}', [PlaceRecommendationController::class, 'destroy']);
+
+    Route::get('/review', [ReviewManagementController::class, 'index']);
+    Route::delete('/review/{id}', [ReviewManagementController::class, 'destroy']);
+
+    Route::get('/tiket', [TiketManagementController::class, 'index']);
+    Route::put('/tiket/{id}', [TiketManagementController::class, 'update']);
+    Route::delete('/tiket/{id}', [TiketManagementController::class, 'destroy']);
+
+    Route::get('/transaction', [TransactionManagementController::class, 'index']);
+    Route::get('/transaction/{id}', [TransactionManagementController::class, 'show']);
+    Route::delete('/transaction/{id}', [TransactionManagementController::class, 'destroy']);
+});
