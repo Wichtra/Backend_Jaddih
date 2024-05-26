@@ -27,16 +27,27 @@ class PlaceRecommendationController extends Controller
             'categorieId' => 'required|integer',
         ]);
 
+        if ($request->file) {
+            $file = $request->file('file');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move('uploads/places', $fileName);
+        }
+
         $place = Place::create([
             'plaName' => $request->plaName,
+            'image' => $fileName,
             'plaLocation' => $request->plaLocation,
             'plaDescription' => $request->plaDescription,
             'plaDistance' => $request->plaDistance,
             'categorieId' => $request->categorieId,
         ]);
 
+        // or
+        // $request['image'] = $fileName;
+        // $place = Place::create($request->all());
+
         return response()->json([
-            'message' => 'Place created successfully', 
+            'message' => 'Place created successfully',
             'place' => $place
         ], 201);
     }

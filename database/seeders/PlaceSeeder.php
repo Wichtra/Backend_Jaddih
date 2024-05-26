@@ -16,6 +16,7 @@ class PlaceSeeder extends Seeder
     {
         DB::table('Places')->insert([
             'plaName' => 'Mecca',
+            'image' => 'dummy.png',
             'plaLocation' => '39.8262,21.3125',
             'plaDescription' => 'Mecca is a city in the Hejazi region of Saudi Arabia.',
             'plaDistance' => 0,
@@ -24,6 +25,7 @@ class PlaceSeeder extends Seeder
 
         DB::table('Places')->insert([
             'plaName' => 'Medina',
+            'image' => 'dummy.png',
             'plaLocation' => '39.5262, 21.4225',
             'plaDescription' => 'Medina is a city in western Saudi Arabia. In the city center,',
             'plaDistance' => 0,
@@ -32,6 +34,7 @@ class PlaceSeeder extends Seeder
 
         DB::table('Places')->insert([
             'plaName' => 'Madina Hospital',
+            'image' => 'dummy.png',
             'plaLocation' => '39.8262,21.4225',
             'plaDescription' => 'Madina Hospital is a hospital in Medina, Saudi Arabia. ',
             'plaDistance' => 0,
@@ -40,6 +43,7 @@ class PlaceSeeder extends Seeder
 
         DB::table('Places')->insert([
             'plaName' => 'Al Baik Hospital',
+            'image' => 'dummy.png',
             'plaLocation' => '39.8662,21.4245',
             'plaDescription' => 'Al Baik Hospital is a hospital in Jeddah, Saudi Arabia',
             'plaDistance' => 0,
@@ -48,6 +52,7 @@ class PlaceSeeder extends Seeder
 
         DB::table('Places')->insert([
             'plaName' => 'Delicious Diner',
+            'image' => 'dummy.png',
             'plaLocation' => '39.8662,21.4245',
             'plaDescription' => 'Delicious Diner is a popular restaurant in Jeddah, Saudi Arabia.',
             'plaDistance' => 0,
@@ -56,6 +61,7 @@ class PlaceSeeder extends Seeder
 
         DB::table('Places')->insert([
             'plaName' => 'Tasty Tavern',
+            'image' => 'dummy.png',
             'plaLocation' => '39.8662,21.4245',
             'plaDescription' => 'Tasty Tavern is a renowned eatery in Jeddah, Saudi Arabia.',
             'plaDistance' => 0,
@@ -64,6 +70,7 @@ class PlaceSeeder extends Seeder
 
         DB::table('Places')->insert([
             'plaName' => 'Comfortable Inn',
+            'image' => 'dummy.png',
             'plaLocation' => '39.8662,21.4245',
             'plaDescription' => 'Comfortable Inn is a cozy hotel in Jeddah, Saudi Arabia.',
             'plaDistance' => 0,
@@ -72,6 +79,7 @@ class PlaceSeeder extends Seeder
 
         DB::table('Places')->insert([
             'plaName' => 'Relaxing Resort',
+            'image' => 'dummy.png',
             'plaLocation' => '39.8662,21.4245',
             'plaDescription' => 'Relaxing Resort is a luxury resort in Jeddah, Saudi Arabia.',
             'plaDistance' => 0,
