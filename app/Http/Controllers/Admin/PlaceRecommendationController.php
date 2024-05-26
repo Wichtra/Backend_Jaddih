@@ -35,7 +35,10 @@ class PlaceRecommendationController extends Controller
             'categorieId' => $request->categorieId,
         ]);
 
-        return response()->json(['message' => 'Place created successfully', 'place' => $place], 201);
+        return response()->json([
+            'message' => 'Place created successfully', 
+            'place' => $place
+        ], 201);
     }
 
     public function show($id)
@@ -43,17 +46,6 @@ class PlaceRecommendationController extends Controller
         $place = Place::findOrFail($id);
 
         return response()->json(['place' => $place], 200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     public function update(Request $request, $id)

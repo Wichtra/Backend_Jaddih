@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class category extends Model
 {
     use HasFactory;
-    public $timestamp = false;
+    public $timestamps = false;
+
+    protected $fillable = [
+        'catName',
+    ];
 }
