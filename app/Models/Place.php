@@ -15,6 +15,7 @@ class Place extends Model
 
     protected $fillable = [
         'plaName',
+        'image',
         'plaLocation',
         'plaDescription',
         'plaDistance',
